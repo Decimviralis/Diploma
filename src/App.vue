@@ -7,17 +7,17 @@
               id="header"
       />
     </div>
-    <div class="page__name">
-
+    <div class="page__name" v-if="checkStore()">
+        {{this.$store.state.pageName}}
     </div>
     <div class="main__content">
       <Navbar
         v-bind:elements="elementsNavbar"
         v-on:redirect = "goToLink"
-        v-if="checkStore"
+        v-if="checkStore()"
         id="navbar"
       />
-      <router-view/>
+      <router-view id="RW"/>
     </div>
     <div class="footer">
       Created by <a href="mailto:mkholopov@usetech.ru">Maxim Kholopov</a>
@@ -63,12 +63,12 @@ export default {
         {
           id: 0,
           value: "Record",
-          linkTo: "lorem"
+          linkTo: "record"
         },
         {
           id: 1,
           value: "Upload",
-          linkTo: "lorem"
+          linkTo: "upload"
         },
         {
           id: 2,
@@ -83,18 +83,18 @@ export default {
       this.$router.push({ name: key });
     },
     checkStore() {
-      return this.$store.state.showDefault;
+      return this.$store.state.isAuth;
     }
   },
   mounted() {
     this.checkStore();
-    if(this.$route.name === "sign-in") {
+    if(this.$store.state.pageName === "sign-in") {
       this.elementsUnauthorized[0].value = "Log in";
       this.elementsUnauthorized[0].linkTo = "log-in";
-    } else if(this.$route.name === "log-in") {
+    } else if(this.$store.state.pageName === "log-in") {
       this.elementsUnauthorized[0].value = "Sign in";
       this.elementsUnauthorized[0].linkTo = "sign-in";
-    } else if(!this.$store.state.isAuth){
+    } else if(this.$store.state.isAuth){
       this.elementsUnauthorized[0].value = "Profile";
       this.elementsUnauthorized[0].linkTo = "profile";
       this.elementsUnauthorized[3].image = require("./assets/sign-out.png");
@@ -135,10 +135,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 24px;
 
+
   .upper__block {
     background: black;
-
     height: 50px;
+    margin-bottom: 150px;
     #header.panel {
       width: 100%;
       margin-left: auto;
@@ -147,10 +148,48 @@ body {
       display: flex;
       justify-content: space-between;
       padding: 12px 20px;
+
+    }
+  }
+
+  .page__name {
+    margin-left: 48%;
+    color: #38bf32;
+    text-transform: uppercase;
+    margin-bottom: 80px;
+    cursor: pointer;
+  }
+
+  .main__content {
+    display: flex;
+    flex-flow: row nowrap;
+    #navbar {
+      -webkit-order: 0;
+      -ms-flex-order: 0;
+      order: 0;
+      -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+      -webkit-align-self: center;
+      -ms-flex-item-align: center;
+      align-self: center;
+    }
+
+    #RW {
+      -webkit-order: 0;
+      -ms-flex-order: 0;
+      order: 0;
+      -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+      -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+      align-self: stretch;
     }
   }
 
   #navbar {
+    margin-top: 40px;
   }
   .footer {
     position: absolute;

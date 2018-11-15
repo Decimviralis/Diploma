@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "register-service-worker": "^1.0.0",
+    "v-uploader": "^1.8.0",
     "vue": "^2.5.17",
+    "vue-audio-recorder": "^2.2.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

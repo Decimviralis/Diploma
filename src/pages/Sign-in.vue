@@ -77,7 +77,9 @@ export default {
       console.log(first,second);
       return first == second;
     }
-
+  },
+  created() {
+    this.$store.commit("setAuth", false);
   }
 
 };

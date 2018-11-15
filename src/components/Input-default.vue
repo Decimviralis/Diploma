@@ -43,17 +43,17 @@ label {
     width: 100%;
     margin-bottom: 20px;
     .title {
-        color: white;
+        color: #888888;
         text-align: left;
         font-size: 20px;
     }
 
     input {
         outline: none;
-        color: white;
+        color: #797979;
         background: transparent;
         border: none;
-        border-bottom: 2px solid white;
+        border-bottom: 2px solid #bdbdbd;
         box-sizing: border-box;
         padding-left: 12px;
         font-size: 20px;

@@ -5,6 +5,9 @@ import Signin from "./pages/Sign-in";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Lorem from "./pages/Lorem";
+import Record from "./pages/Record";
+import Upload from "./pages/Upload";
+
 Vue.use(Router);
 
 export default new Router({
@@ -35,6 +38,16 @@ export default new Router({
       path: "/lorem",
       name: "lorem",
       component: Lorem
+    },
+    {
+      path: "/record",
+      name: "record",
+      component: Record
+    },
+    {
+      path: "/upload",
+      name: "upload",
+      component: Upload
     }
   ]
 });

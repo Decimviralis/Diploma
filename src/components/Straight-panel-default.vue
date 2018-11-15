@@ -32,7 +32,7 @@ ul {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  min-width: 400px;
+  width: 200px;
   max-width: 500px;
   color: white;
   text-align: center;
@@ -40,10 +40,11 @@ ul {
   margin-right: 40px;
   margin-top: 40px;
   cursor: pointer;
-
+  box-sizing: border-box;
   li {
     &:hover {
       color: #38bf32;
+
     }
 
     img {
