@@ -1,5 +1,5 @@
 <template>
-    <label>
+    <label class="navbar">
         <ul>
             <li
                     v-for="element in elements"
@@ -22,15 +22,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 ul {
-    position: absolute;
+  position: absolute;
   list-style-type: none;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   width: 170px;
-    box-sizing: border-box;
-  min-height: 200px;
+
+  height: auto;
+  box-sizing: border-box;
+  min-height: 260px;
   color: white;
   text-align: left;
   margin-right: auto;

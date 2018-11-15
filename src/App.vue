@@ -1,15 +1,21 @@
 <template>
   <div id="app">
-    <Header
-      v-bind:elements = "elementsUnauthorized"
-      v-on:redirect = "goToLink"
-      id="header"
-    />
+    <div class="upper__block">
+      <Header
+              v-bind:elements = "elementsUnauthorized"
+              v-on:redirect = "goToLink"
+              id="header"
+      />
+    </div>
+    <div class="page__name">
+
+    </div>
     <div class="main__content">
       <Navbar
-              v-if="checkStore"
         v-bind:elements="elementsNavbar"
         v-on:redirect = "goToLink"
+        v-if="checkStore"
+        id="navbar"
       />
       <router-view/>
     </div>
@@ -77,9 +83,7 @@ export default {
       this.$router.push({ name: key });
     },
     checkStore() {
-      console.log("чекнули");
-      console.log(this.$store.state.isAuth);
-      return this.$store.state.isAuth;
+      return this.$store.state.showDefault;
     }
   },
   mounted() {
@@ -117,22 +121,37 @@ body {
 
 }
 #app {
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
   position: relative;
-  background: #141E30;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #404041;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #404041, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #504b4f, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: $arial, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 24px;
 
-  #header {
+  .upper__block {
+    background: black;
 
+    height: 50px;
+    #header.panel {
+      width: 100%;
+      margin-left: auto;
+      margin-top: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
   }
 
+  #navbar {
+  }
   .footer {
     position: absolute;
     bottom: 20px;

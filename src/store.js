@@ -5,8 +5,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isAuth: false
+    isAuth: false,
+    showDefault: false,
+    pageName: null
   },
-  mutations: {},
+  mutations: {
+    setAuth(state, status) {
+      state.isAuth = status;
+    },
+    setPageName(state, name) {
+      state.pageName = name;
+    }
+  },
   actions: {}
 });

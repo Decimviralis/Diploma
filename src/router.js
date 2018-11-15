@@ -32,8 +32,8 @@ export default new Router({
       component: Profile
     },
     {
-      path: '/lorem',
-      name: 'lorem',
+      path: "/lorem",
+      name: "lorem",
       component: Lorem
     }
   ]

@@ -66,12 +66,12 @@ export default {
       this.$router.push({ name: "sign-in" });
     },
     goToHome() {
-      this.$store.state.isAuth = true;
+      this.$store.commit("setAuth", true);
       this.$router.push({ name: "profile" });
     }
   },
   created() {
-    this.$store.state.isAuth = false;
+    this.$store.commit("setAuth", false);
   }
 };
 </script>
